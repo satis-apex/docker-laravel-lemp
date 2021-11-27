@@ -19,6 +19,7 @@ services:
     depends_on:
       - php
       - mysql
+      - phpmyadmin
     networks:
       - laravel
 
@@ -109,12 +110,15 @@ services:
   phpmyadmin:
     depends_on:
       - mysql
-    image: phpmyadmin/phpmyadmin
+      - php
+    image: phpmyadmin:5.1.1-fpm-alpine
     container_name: phpmyadmin
     ports:
-      - '8080:80'
+      - 8080:80
     environment:
       PMA_HOST: mysql
+      PMA_USER: eduschool
+      PMA_PASSWORD: toor
       PMA_PORT: 3306
       UPLOAD_LIMIT: 512M
       MEMORY_LIMIT: 512M
