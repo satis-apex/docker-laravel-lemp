@@ -111,10 +111,10 @@ services:
     depends_on:
       - mysql
       - php
-    image: phpmyadmin:5.1.1-fpm-alpine
+    image: phpmyadmin    #image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
     ports:
-      - 8080:80
+      - 8000:80
     environment:
       PMA_HOST: mysql
       PMA_USER: eduschool
